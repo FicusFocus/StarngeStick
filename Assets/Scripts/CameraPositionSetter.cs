@@ -5,7 +5,7 @@ public class CameraPositionSetter : MonoBehaviour
     [SerializeField] private float _maxOffsetX;
     [SerializeField] private float _zOffset; 
 
-    private NewIceCream _iceCream;
+    private IceCream _iceCream;
     private Vector3 _bacePosition;
 
     private void Update()
@@ -24,7 +24,7 @@ public class CameraPositionSetter : MonoBehaviour
         transform.localPosition = targetPosition;
     }
 
-    public void Init(NewIceCream target)
+    public void Init(IceCream target)
     {
         _iceCream = target;
         _bacePosition = transform.position;

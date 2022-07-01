@@ -1,10 +1,9 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Collider), typeof(Rigidbody))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private RotationSetter _rotationSetter;
-    [SerializeField] private NewIceCream _icecream;
+    [SerializeField] private IceCream _icecream;
     [SerializeField] private SideMover _sideMover;
     [SerializeField] private CameraPositionSetter _cameraPositionSetter;
     [SerializeField] private float _sideSpeed;
@@ -14,6 +13,12 @@ public class Player : MonoBehaviour
     {
         _sideMover.Init(_sideSpeed, _icecream);
         _cameraPositionSetter.Init(_icecream);
+        _icecream.RotateTriggerTaked += OnRotatetriggerTaket;
+    }
+
+    private void OnDisable()
+    {
+        _icecream.RotateTriggerTaked -= OnRotatetriggerTaket;
     }
 
     private void Update()
@@ -21,30 +26,16 @@ public class Player : MonoBehaviour
         Move();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Move()
     {
-        if (other.TryGetComponent(out PartTotake icecreamPartToTake))
-            TakeNewIceCreamPart(icecreamPartToTake);
-        else if (other.TryGetComponent(out RotateTrigger rotate))
-            ChangeDirection(rotate.Direction);
-        else if (other.TryGetComponent(out ColorSetter iceCreamColoreSetter))
-            ChangeIceCreamMaterial(iceCreamColoreSetter.NewColor);
+        transform.Translate(Vector3.forward * _forvardSpeed * Time.deltaTime);
     }
 
-    private void ChangeIceCreamMaterial(Material material)
+    
+    
+    private void OnRotatetriggerTaket(Direction direction)
     {
-        _icecream.ChangeMaterial(material);
-    }
-
-    private void TakeNewIceCreamPart(PartTotake icecreamPartToTake)
-    {
-        _icecream.InstantiateNewIceCreamPart();
-        icecreamPartToTake.DestroyPart();
-    }
-
-    private void ChangeDirection(Direction rotate)
-    {
-        switch (rotate)
+        switch (direction)
         {
             case Direction.Right:
                 _sideMover.SetNewDirectionVectors(Vector3.back, Vector3.forward);
@@ -59,12 +50,12 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        _rotationSetter.SetTargetRotation(rotate);
+        _rotationSetter.SetTargetRotation(direction);
     }
 
-    private void Move()
+    private void ChangeIceCreamMaterial(Material material)
     {
-        transform.Translate(Vector3.forward * _forvardSpeed * Time.deltaTime);
+        _icecream.ChangeMaterial(material);
     }
 
     public void SetForvardSpeedValue(float value)

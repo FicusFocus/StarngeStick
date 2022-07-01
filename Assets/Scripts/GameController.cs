@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -10,6 +9,11 @@ public class GameController : MonoBehaviour
     private void OnEnable()
     {
         _finish.FinishPassed += OnFinishPassed;
+    }
+
+    private void OnDisable()
+    {
+        _finish.FinishPassed -= OnFinishPassed;
     }
 
     private void OnFinishPassed()

@@ -6,7 +6,7 @@ public class SideMover : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
     private Vector3 _right = Vector3.right;
     private Vector3 _left = Vector3.left;
-    private NewIceCream _iceCream;
+    private IceCream _iceCream;
     private float _sideSpeed;
 
     private void SideMove(PointerEventData eventData)
@@ -29,7 +29,7 @@ public class SideMover : MonoBehaviour, IBeginDragHandler, IDragHandler
         SideMove(eventData);
     }
 
-    public void Init(float sideSpeedValue, NewIceCream iceCream)
+    public void Init(float sideSpeedValue, IceCream iceCream)
     {
         _sideSpeed = sideSpeedValue;
         _iceCream = iceCream;
