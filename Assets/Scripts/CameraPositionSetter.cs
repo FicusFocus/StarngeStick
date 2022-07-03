@@ -24,9 +24,9 @@ public class CameraPositionSetter : MonoBehaviour
         transform.localPosition = targetPosition;
     }
 
-    public void Init(IceCream target)
+    public void Init(IceCream targetIceCream)
     {
-        _iceCream = target;
+        _iceCream = targetIceCream;
         _bacePosition = transform.position;
     }
 }

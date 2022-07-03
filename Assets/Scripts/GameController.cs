@@ -19,6 +19,6 @@ public class GameController : MonoBehaviour
     private void OnFinishPassed()
     {
         _finishCanvas.SetActive(true);
-        _player.SetForvardSpeedValue(0);
+        _player.Stop();
     }
 }

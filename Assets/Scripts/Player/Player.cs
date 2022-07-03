@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))] 
 public class Player : MonoBehaviour
 {
     [SerializeField] private RotationSetter _rotationSetter;
@@ -9,8 +11,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float _sideSpeed;
     [SerializeField] private float _forvardSpeed;
 
+    private Animator _animator;
+    private bool _canMove = true;
+    private string _stopTrigger = "Stop";
+
     private void OnEnable()
     {
+        _animator = GetComponent<Animator>();
         _sideMover.Init(_sideSpeed, _icecream);
         _cameraPositionSetter.Init(_icecream);
         _icecream.RotateTriggerTaked += OnRotatetriggerTaket;
@@ -23,7 +30,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        Move();
+        if (_canMove)
+            Move();
     }
 
     private void Move()
@@ -31,8 +39,6 @@ public class Player : MonoBehaviour
         transform.Translate(Vector3.forward * _forvardSpeed * Time.deltaTime);
     }
 
-    
-    
     private void OnRotatetriggerTaket(Direction direction)
     {
         switch (direction)
@@ -52,17 +58,15 @@ public class Player : MonoBehaviour
 
         _rotationSetter.SetTargetRotation(direction);
     }
-
+    
     private void ChangeIceCreamMaterial(Material material)
     {
         _icecream.ChangeMaterial(material);
     }
 
-    public void SetForvardSpeedValue(float value)
+    public void Stop()
     {
-        if (value < 0 || value > 10)
-            return;
-
-        _forvardSpeed = value;
+        _canMove = false;
+        _animator.SetTrigger(_stopTrigger);
     }
 }
