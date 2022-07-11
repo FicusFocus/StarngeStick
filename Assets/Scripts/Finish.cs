@@ -8,7 +8,7 @@ public class Finish : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out  IceCream hand))
+        if (other.TryGetComponent(out  SpringStack hand))
             FinishPassed?.Invoke();
     }
 }

@@ -30,6 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1833255125448994205}
+  - {fileID: 339089529463287636}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -1224,8 +1225,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 0.98039216}
+        key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1240,16 +1241,16 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 52043
-        atime2: 65535
+        atime1: 27949
+        atime2: 52043
         atime3: 65535
-        atime4: 0
+        atime4: 65535
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 3
+        m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0}
@@ -9490,3 +9491,69 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1001 &4756387330466305040
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1833255125448940869}
+    m_Modifications:
+    - target: {fileID: 2162251598704565011, guid: d7dd38c11aa6b624c971ab93cc763d3e, type: 3}
+      propertyPath: m_Name
+      value: WotterTextureeffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551944836505697794, guid: d7dd38c11aa6b624c971ab93cc763d3e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.54509807
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095441666746776388, guid: d7dd38c11aa6b624c971ab93cc763d3e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095441666746776388, guid: d7dd38c11aa6b624c971ab93cc763d3e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095441666746776388, guid: d7dd38c11aa6b624c971ab93cc763d3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.065
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095441666746776388, guid: d7dd38c11aa6b624c971ab93cc763d3e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095441666746776388, guid: d7dd38c11aa6b624c971ab93cc763d3e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095441666746776388, guid: d7dd38c11aa6b624c971ab93cc763d3e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095441666746776388, guid: d7dd38c11aa6b624c971ab93cc763d3e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095441666746776388, guid: d7dd38c11aa6b624c971ab93cc763d3e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095441666746776388, guid: d7dd38c11aa6b624c971ab93cc763d3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095441666746776388, guid: d7dd38c11aa6b624c971ab93cc763d3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095441666746776388, guid: d7dd38c11aa6b624c971ab93cc763d3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d7dd38c11aa6b624c971ab93cc763d3e, type: 3}
+--- !u!4 &339089529463287636 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5095441666746776388, guid: d7dd38c11aa6b624c971ab93cc763d3e, type: 3}
+  m_PrefabInstance: {fileID: 4756387330466305040}
+  m_PrefabAsset: {fileID: 0}

@@ -4,9 +4,9 @@ using UnityEngine.EventSystems;
 
 public class SideMover : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
+    private SpringStack _springStack;
     private Vector3 _right = Vector3.right;
     private Vector3 _left = Vector3.left;
-    private IceCream _iceCream;
     private float _sideSpeed;
 
     private void SideMove(PointerEventData eventData)
@@ -14,25 +14,20 @@ public class SideMover : MonoBehaviour, IBeginDragHandler, IDragHandler
         if (Mathf.Abs(eventData.delta.x) > Mathf.Abs(eventData.delta.y))
         {
             if (eventData.delta.x > 0)
-                _iceCream.transform.position += _right * _sideSpeed * Time.deltaTime;
+                _springStack.transform.position += _right * _sideSpeed * Time.deltaTime;
             else
-                _iceCream.transform.position += _left * _sideSpeed * Time.deltaTime;
+                _springStack.transform.position += _left * _sideSpeed * Time.deltaTime;
         }
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-    }
+    public void OnBeginDrag(PointerEventData eventData) { }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        SideMove(eventData);
-    }
+    public void OnDrag(PointerEventData eventData) => SideMove(eventData);
 
-    public void Init(float sideSpeedValue, IceCream iceCream)
+    public void Init(float sideSpeedValue, SpringStack springStack)
     {
         _sideSpeed = sideSpeedValue;
-        _iceCream = iceCream;
+        _springStack = springStack;
     }
 
     public void SetNewDirectionVectors(Vector3 right, Vector3 left)

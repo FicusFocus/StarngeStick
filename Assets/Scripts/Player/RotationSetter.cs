@@ -27,11 +27,8 @@ public class RotationSetter : MonoBehaviour
                 break;
         }
 
-        TryStartRotation();
+        StartRotation();
     }
 
-    private void TryStartRotation()
-    {
-        transform.DORotate(_targetRotation.eulerAngles, _durationRotation);
-    }
+    private void StartRotation() => transform.DORotate(_targetRotation.eulerAngles, _durationRotation);
 }

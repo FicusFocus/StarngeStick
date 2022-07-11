@@ -122,7 +122,6 @@ GameObject:
   - component: {fileID: 1710288768429109675}
   - component: {fileID: 4159894790795873744}
   - component: {fileID: 2005176021598807144}
-  - component: {fileID: 3541468372976971985}
   m_Layer: 0
   m_Name: Icecream
   m_TagString: Untagged
@@ -195,21 +194,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3541468372976971985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8879201183103890310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed1de29a73003046aaf94f0e2ad36c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _template: {fileID: 4983042446913717113, guid: 5ee26032205685a49849e05b765ed7b4, type: 3}
-  _towerMover: {fileID: 0}
-  _startTowerPosition: {fileID: 1081388408370230552}
-  _partsContainer: {fileID: 1081388408370230552}
-  _spacingBetweenParts: 0.18
-  _startIcecreamSize: 1

@@ -4,12 +4,12 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))] 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private RotationSetter _rotationSetter;
-    [SerializeField] private IceCream _icecream;
-    [SerializeField] private SideMover _sideMover;
     [SerializeField] private CameraPositionSetter _cameraPositionSetter;
-    [SerializeField] private float _sideSpeed;
+    [SerializeField] private RotationSetter _rotationSetter;
+    [SerializeField] private SpringStack _springStack;
+    [SerializeField] private SideMover _sideMover;
     [SerializeField] private float _forvardSpeed;
+    [SerializeField] private float _sideSpeed;
 
     private Animator _animator;
     private bool _canMove = true;
@@ -18,15 +18,12 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         _animator = GetComponent<Animator>();
-        _sideMover.Init(_sideSpeed, _icecream);
-        _cameraPositionSetter.Init(_icecream);
-        _icecream.RotateTriggerTaked += OnRotatetriggerTaket;
+        _sideMover.Init(_sideSpeed, _springStack);
+        _cameraPositionSetter.Init(_springStack);
+        _springStack.RotateTriggerTaked += OnRotatetriggerTaket;
     }
 
-    private void OnDisable()
-    {
-        _icecream.RotateTriggerTaked -= OnRotatetriggerTaket;
-    }
+    private void OnDisable() => _springStack.RotateTriggerTaked -= OnRotatetriggerTaket;
 
     private void Update()
     {
@@ -34,10 +31,7 @@ public class Player : MonoBehaviour
             Move();
     }
 
-    private void Move()
-    {
-        transform.Translate(Vector3.forward * _forvardSpeed * Time.deltaTime);
-    }
+    private void Move() => transform.Translate(Vector3.forward * _forvardSpeed * Time.deltaTime);
 
     private void OnRotatetriggerTaket(Direction direction)
     {
@@ -59,10 +53,7 @@ public class Player : MonoBehaviour
         _rotationSetter.SetTargetRotation(direction);
     }
     
-    private void ChangeIceCreamMaterial(Material material)
-    {
-        _icecream.ChangeMaterial(material);
-    }
+    private void ChangeIceCreamMaterial(Material material) => _springStack.ChangeMaterial(material);
 
     public void Stop()
     {

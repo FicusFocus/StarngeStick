@@ -1,20 +1,14 @@
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class GameFinnishController : MonoBehaviour
 {
     [SerializeField] private Finish _finish;
     [SerializeField] private Player _player;
     [SerializeField] private GameObject _finishCanvas;
 
-    private void OnEnable()
-    {
-        _finish.FinishPassed += OnFinishPassed;
-    }
+    private void OnEnable() => _finish.FinishPassed += OnFinishPassed;
 
-    private void OnDisable()
-    {
-        _finish.FinishPassed -= OnFinishPassed;
-    }
+    private void OnDisable() => _finish.FinishPassed -= OnFinishPassed;
 
     private void OnFinishPassed()
     {
