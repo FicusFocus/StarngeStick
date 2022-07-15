@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     private Animator _animator;
     private bool _canMove = true;
     private string _stopTrigger = "Stop";
+    private string _rotateRight = "Right";
+    private string _rotateForvard = "Forvard";
 
     private void OnEnable()
     {
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour
         {
             case Direction.Right:
                 _sideMover.SetNewDirectionVectors(Vector3.back, Vector3.forward);
+                _animator.SetTrigger(_rotateRight);
                 break;
 
             case Direction.Left:
@@ -47,6 +50,7 @@ public class Player : MonoBehaviour
 
             case Direction.Forward:
                 _sideMover.SetNewDirectionVectors(Vector3.right, Vector3.left);
+                _animator.SetTrigger(_rotateForvard);
                 break;
         }
 

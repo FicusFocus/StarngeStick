@@ -48,9 +48,14 @@ public class SpringStack : MonoBehaviour
         }
 
         if (other.TryGetComponent(out RotateTrigger rotate))
+        {
             RotateTriggerTaked?.Invoke(rotate.Direction);
+            rotate.Disable();
+        }
         else if (other.TryGetComponent(out ColorSetter iceCreamColoreSetter))
+        {
             ChangeMaterial(iceCreamColoreSetter.NewColor);
+        }
     }
 
     private void AddSteckPart()
@@ -58,7 +63,7 @@ public class SpringStack : MonoBehaviour
         Vector3 newPosition = _stackpartsContainer.position;
         newPosition.y += _distanceBetweenParts * _stack.Count;
 
-        StackPart newStackPart = Instantiate(_tamplate, newPosition, _stackpartsContainer.rotation, _stackpartsContainer);
+        StackPart newStackPart = Instantiate(_tamplate, newPosition, _stackpartsContainer.rotation, _stackpartsContainer); ;
 
         if (_stack.Count == 0)
             newStackPart.SetConnectedBody(this._rigidbody, new Vector3(0, _distanceBetweenParts, 0));
@@ -79,6 +84,7 @@ public class SpringStack : MonoBehaviour
         else if (_stack.Count > 10)
             SetSpringParsSettings(_uperPreset);
     }
+
     private void SetSpringParsSettings(SpringPartsPreset preset)
     {
         int iterationNumber = 0;
